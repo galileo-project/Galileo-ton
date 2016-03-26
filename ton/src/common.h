@@ -9,7 +9,15 @@ typedef enum status_e {
     dead
 } Status;
 
-} 
+typedef enum signal_e {
+
+} Signal;
+
+typedef struct msg_s {
+   Signal signal; 
+} Msg;
+
+} //ton 
 
 #endif //TON_COMMON_H_
 

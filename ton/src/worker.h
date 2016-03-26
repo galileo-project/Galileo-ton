@@ -11,9 +11,9 @@ class Worker {
     ~Worker();
   private:
     Status status;
-}
+}; //Worker
 
-}
+} //ton
 
 
 #endif //TON_WORKER_H_
