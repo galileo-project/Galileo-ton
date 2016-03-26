@@ -7,6 +7,7 @@ class Task {
   public:
     Task();
     ~Task();
+    void run();
   private:
     void *_task;
 }; //Task

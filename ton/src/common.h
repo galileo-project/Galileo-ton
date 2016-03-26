@@ -17,8 +17,13 @@ typedef enum signal_e {
     kill
 } Signal;
 
+typedef enum type_e {
+    log
+} Type;
+
 typedef struct msg_s {
    Signal signal; 
+   Type type;
 } Msg;
 
 } //ton 
