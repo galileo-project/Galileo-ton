@@ -12,6 +12,7 @@ class Worker {
 
     Worker(Task *task);
     ~Worker();
+    void receive(Msg*);
     void work();
   private:
     Task *_task

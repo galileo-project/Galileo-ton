@@ -10,7 +10,9 @@ typedef enum status_e {
 } Status;
 
 typedef enum signal_e {
-
+    start,
+    stop,
+    kill
 } Signal;
 
 typedef struct msg_s {
