@@ -15,7 +15,9 @@ class Worker {
     void receive(Msg*);
     void work();
   private:
+    Chan *chan;
     Task *_task
+    Msg *msg;
 }; //Worker
 
 } //ton

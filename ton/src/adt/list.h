@@ -4,6 +4,11 @@
 namespace ton {
 namespace adt {
 
+typedef struct list_s {
+
+} List;
+
+
 } //adt
 } //ton
 

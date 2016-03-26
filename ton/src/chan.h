@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "worker.h"
+#include "adt/list.h"
 
 namespace ton {
 
@@ -14,6 +15,9 @@ class Chan {
     ~Chan();
     void send(Worker*, Msg);
     void broadcast(Msg);
+    void subscribe(void*);
+  private:
+    adt::List *subscriber;
 }; //Chan 
 
 } //ton
