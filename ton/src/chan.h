@@ -8,13 +8,12 @@ namespace ton {
 
 class Chan {
   public:
+    size_t len;
+
     Chan();
     ~Chan();
     void send(Worker*, Msg);
     void broadcast(Msg);
-  private:
-    size_t len;
-
 }; //Chan 
 
 } //ton

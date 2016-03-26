@@ -8,15 +8,16 @@ namespace ton {
 
 class Runner {
   public:
+    Status status;
+
     Runner();
     ~Runner();
     Status get_status();
     size_t get_workers();
-    void launch();
+    void run();
     void dispatch(Worker*);
   private:
-    Status status;
-    size_t workers;
+    size_t _workers;
 
 }; //Runner
 
