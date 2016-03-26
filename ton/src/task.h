@@ -5,11 +5,7 @@ namespace ton {
 
 class Task {
   public:
-    Task();
-    ~Task();
-    void run();
-  private:
-    void *_task;
+    virtual void run() = 0;
 }; //Task
 
 } //ton
