@@ -9,7 +9,8 @@ typedef enum status_e {
     created,
     stopped,
     running,
-    dead
+    dead,
+    started
 } Status;
 
 typedef enum signal_e {

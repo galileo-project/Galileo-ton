@@ -14,9 +14,9 @@ class Runner {
 
     Runner();
     void run();
-    void dispatch(Worker*);
+    void dispatch(const Worker&);
   private:
-    std::vector<Worker*> _workers;
+    std::vector<Worker> _workers;
 }; //Runner
 
 } //ton

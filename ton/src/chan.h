@@ -18,7 +18,7 @@ class Chan {
     void subscribe(const Worker&);
     void clear();
   private:
-    std::vector<Worker&> subscribes;
+    std::vector<Worker> subscribes;
 }; //Chan 
 
 } //ton

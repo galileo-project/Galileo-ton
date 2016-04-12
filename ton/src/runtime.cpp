@@ -4,7 +4,7 @@
 namespace ton {
     
 Runtime::Runtime() {
-    
+    status = created;
 }
 
 Runtime::~Runtime() {
@@ -12,6 +12,7 @@ Runtime::~Runtime() {
 }
 
 void Runtime::launch() {
+    status = started;
     Runner runner;
     
 }

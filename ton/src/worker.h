@@ -10,14 +10,14 @@ class Worker {
   public:
     Status status;
 
-    Worker(Task *task);
+    Worker(Task&);
     ~Worker();
-    void receive(const Msg&);
+    void receive(Msg&);
     void work();
   private:
-    Chan *chan;
-    Task *_task
-    Msg *msg;
+    Chan& _chan;
+    Task& _task
+    Msg& _msg;
 }; //Worker
 
 } //ton
