@@ -15,26 +15,26 @@ INCLUDE_DIR     = /usr/local/include/ton
 VPATH           = src:test
 
 $(LIB_OBJS): $(LIB_OBJS)
-    @echo compile archive target
-    $(AR) $(ARFLAGES) $@ $?
+	@echo compile archive target
+	$(AR) $(ARFLAGES) $@ $?
     
 .PHONY: test
 test: $(TEST_OBJS) $(LIB_TARGET)
-    @echo compile test target
-    $(CPPC) $(CFLAGS) -o $(TEST_TARGET) $^
-    ./$(TEST_TARGET)
+	@echo compile test target
+	$(CPPC) $(CFLAGS) -o $(TEST_TARGET) $^
+	./$(TEST_TARGET)
     
 .PHONY: install
 install: $(LIB_TARGET) $(HEADER_FILLE)
-    @echo install ...
-    mkdir -p $(INCLUDE_DIR)
-    cp -r $(HEADER_FILLE) $(INCLUDE_DIR)
-    cp $(LIB_TARGET) $(LIB_DIR)
+	@echo install ...
+	mkdir -p $(INCLUDE_DIR)
+	cp -r $(HEADER_FILLE) $(INCLUDE_DIR)
+	cp $(LIB_TARGET) $(LIB_DIR)
     
 $(LIB_OBJS):  $(LIB_CPPFILE)
 $(TEST_OBJS): $(TEST_CPPFILE)
 
 .PHONY: clean
 clean:
-    @echo clean ...
-    -rm -rf $(LIB_OBJS) $(TEST_OBJS) $(LIB_TARGET) $(TEST_TARGET)
+	@echo clean ...
+	-rm -rf $(LIB_OBJS) $(TEST_OBJS) $(LIB_TARGET) $(TEST_TARGET)
