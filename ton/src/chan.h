@@ -3,7 +3,7 @@
 
 #include "common.h"
 #include "worker.h"
-#include "adt/list.h"
+#include <vector>
 
 namespace ton {
 
@@ -13,11 +13,12 @@ class Chan {
 
     Chan();
     ~Chan();
-    void send(Worker*, Msg);
-    void broadcast(Msg);
-    void subscribe(void*);
+    void send(const Worker&, const Msg&);
+    void broadcast(const Msg&);
+    void subscribe(const Worker&);
+    void clear();
   private:
-    adt::List *subscriber;
+    std::vector<Worker&> subscribes;
 }; //Chan 
 
 } //ton

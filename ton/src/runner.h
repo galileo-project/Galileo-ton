@@ -18,7 +18,6 @@ class Runner {
     void dispatch(Worker*);
   private:
     size_t _workers;
-
 }; //Runner
 
 } //ton

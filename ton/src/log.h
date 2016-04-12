@@ -14,7 +14,6 @@ class Log {
     void fatal(std::string);
   private:
     std::string log_file; 
-
 }; //Log
 
 } //ton
