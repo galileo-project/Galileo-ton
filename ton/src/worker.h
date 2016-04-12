@@ -12,7 +12,7 @@ class Worker {
 
     Worker(Task *task);
     ~Worker();
-    void receive(Msg*);
+    void receive(const Msg&);
     void work();
   private:
     Chan *chan;

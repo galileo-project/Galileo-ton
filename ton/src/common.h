@@ -6,6 +6,7 @@
 namespace ton {
 
 typedef enum status_e {
+    created,
     stopped,
     running,
     dead
