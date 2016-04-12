@@ -14,7 +14,7 @@ INCLUDE_DIR     = /usr/local/include/ton
 
 VPATH           = src:test
 
-$(LIB_OBJS): $(LIB_OBJS)
+$(LIB_TARGET): $(LIB_OBJS)
 	@echo compile archive target
 	$(AR) $(ARFLAGES) $@ $?
     
