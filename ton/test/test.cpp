@@ -14,3 +14,11 @@
     chan.send(worker, msg);
     chan.broadcast(msg);
 */
+
+#include "common.h"
+#include "test.h"
+
+
+int main() {
+    
+}
