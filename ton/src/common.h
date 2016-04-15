@@ -26,6 +26,7 @@ typedef enum type_e {
 typedef struct msg_s {
    Signal signal; 
    Type type;
+   void *data;
 } Msg;
 
 } //ton 
