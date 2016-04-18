@@ -40,7 +40,7 @@ class Async {
     ~Async();
     int run(async_f*, void*);
   private:
-  void *_wrapper(wrapper_data*);
+    void *_wrapper(wrapper_data*);
     void _async_done();
     std::vector<async_ret_t> _rets;
     pthread_mutex_t _lock;
