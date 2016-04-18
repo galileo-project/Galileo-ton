@@ -11,10 +11,10 @@ Worker::Worker(Task &task) {
 }
 
 Worker::~Worker() {
-    safe_free(&_task);
+    safe_free(_task);
 }
 
-void Worker::receive(const msg_t& msg) {
+void *Worker::receive(const msg_t& msg) {
     
 }
 

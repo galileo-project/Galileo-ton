@@ -1,9 +1,8 @@
-#include "chan.h"
-
 #ifndef TON_WORKER_H_
 #define TON_WORKER_H_
 
 #include "common.h"
+#include "chan.h"
 #include "task.h"
 
 namespace ton {
@@ -14,7 +13,7 @@ class Worker {
 
     Worker(Task&);
     ~Worker();
-    void receive(const msg_t&);
+    void *receive(const msg_t&);
     void work();
   private:
     Chan   *_chan;
