@@ -44,7 +44,7 @@ int Async::run(async_f *func, void *data) {
     wrapper_data_t *wrapper_data = wrapper_data_new(func, data); 
     pthread_t pid;
     
-    if(pthread_create(&pid, NULL, _wrapper, wrapper_data)) {
+    if(pthread_create(&pid, NULL, this->_wrapper, wrapper_data)) {
         return -1;
     }
     async_ret_t *ret = async_ret_new(pid);
@@ -64,7 +64,7 @@ void Async::_async_done() {
     const async_ret_t cend = this->_rets.cend();
     for(async_ret_t ret = this->_rets.cbegin(); ret != cend; ++ret) {
         if(ret.async_status == async_done) {
-            void *data;
+            void **data;
             pthread_join(ret.pid, data);
             result.push_back(data);
         }
