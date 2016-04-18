@@ -11,20 +11,20 @@ typedef enum status_e {
     running,
     dead,
     started,
-    nullStatus
+    null_status
 } status_t;
 
 typedef enum signal_e {
     start,
     stop,
     kill,
-    nullSignal
+    null_signal
 } signal_t;
 
 typedef enum type_e {
     task,
     signal,
-    nullType
+    null_type
 } type_t;
 
 typedef struct msg_s {

@@ -22,7 +22,7 @@ void async_ret_done(async_ret_t *ret) {
 
 //wrapper
 wrapper_data_t *wrapper_data_new(async_f *func, void *data) {
-    wrapper_data_t *wrapper_data = (*wrapper_data_t)malloc(sizeof(wrapper_data));
+    wrapper_data_t *wrapper_data = (*wrapper_data_t)malloc(sizeof(wrapper_data_t));
     if(wrapper_data == NULL)
         return NULL;
     
@@ -50,19 +50,20 @@ int Async::run(async_f *func, void *data) {
     async_ret_t *ret = async_ret_new(pid);
     async_ret_run(ret);
     _rets.push_back(ret);
+    return 0;
 }
 
-void * Async::_wrapper(wrapper_data *data) {
+void * Async::_wrapper(wrapper_data_t *data) {
     void *ret = (data->func)(data->data);
     _async_done();
     return ret;
 }
     
 void Async::_async_done() {
-    const auto end = this->_rets.cend();
-    for(auto ret = this->_rets.begin(); ret != end; ret++) {
+    const async_t cend = this->_rets.cend();
+    for(async_t ret = this->_rets.cbegin(); ret != cend; ret++) {
         if(ret->async_status == async_done) {
-            void data;
+            void *data;
             pthread_join(ret->pid, data);
             result.push_back(data);
         }
