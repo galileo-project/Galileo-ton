@@ -8,8 +8,6 @@
 #include <pthread.h>
 
 namespace ton {
-  
-
 
 class Runner {
   public:
