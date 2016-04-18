@@ -43,7 +43,7 @@ class Async {
   private:
     void                    *_wrapper(wrapper_data_t*);
     void                     _async_done();
-    std::vector<async_ret_t> _rets;
+    std::vector<async_ret_t*> _rets;
     pthread_mutex_t          _lock;
 }; //Async
     

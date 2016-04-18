@@ -4,7 +4,7 @@
 namespace ton {
     
 async_ret_t * async_ret_new(pthread_t pid) {
-    async_ret_t *ret = (*async_ret_t)malloc(sizeof(async_ret_t));
+    async_ret_t *ret = (async_ret_t*)malloc(sizeof(async_ret_t));
     if(ret == NULL)
         return NULL;
         
@@ -22,7 +22,7 @@ void async_ret_done(async_ret_t *ret) {
 
 //wrapper
 wrapper_data_t *wrapper_data_new(async_f *func, void *data) {
-    wrapper_data_t *wrapper_data = (*wrapper_data_t)malloc(sizeof(wrapper_data_t));
+    wrapper_data_t *wrapper_data = (wrapper_data_t*)malloc(sizeof(wrapper_data_t));
     if(wrapper_data == NULL)
         return NULL;
     
@@ -60,8 +60,8 @@ void * Async::_wrapper(wrapper_data_t *data) {
 }
     
 void Async::_async_done() {
-    const async_t cend = this->_rets.cend();
-    for(async_t ret = this->_rets.cbegin(); ret != cend; ret++) {
+    const async_ret_t cend = this->_rets.cend();
+    for(async_ret_t ret = this->_rets.cbegin(); ret != cend; ret++) {
         if(ret->async_status == async_done) {
             void *data;
             pthread_join(ret->pid, data);
