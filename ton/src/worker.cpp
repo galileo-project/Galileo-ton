@@ -1,6 +1,7 @@
 #include "worker.h"
 #include "common.h"
 #include "utils.h"
+#include "chan.h"
 
 namespace ton {
     
@@ -15,7 +16,7 @@ Worker::~Worker() {
 }
 
 void *Worker::receive(const msg_t& msg) {
-    
+    return NULL;
 }
 
 void Worker::work() {
