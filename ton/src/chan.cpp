@@ -21,7 +21,7 @@ void Chan::send(const Worker& worker, const msg_t& msg) {
    
 void Chan::broadcast(const msg_t& msg) {
     if(!subscribes.empty()) {
-        const auto& end = subscribes.cend();
+        const auto end = subscribes.cend();
         for(auto worker = subscribes.cbegin(); worker != end; ++worker) {
             worker.receive(msg);
         }
