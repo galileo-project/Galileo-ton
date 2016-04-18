@@ -1,4 +1,4 @@
-#include <stdlib>
+#include <cstdlib>
 #include "utils.h"
 
 namespace ton {
