@@ -6,7 +6,7 @@ namespace ton {
     
 Worker::Worker(Task &task) {
     status = created;
-    _task  = task;
+    _task  = &task;
     _chan  = new Chan();
 }
 
