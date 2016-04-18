@@ -12,8 +12,8 @@ class Async;
 
 class Runner {
   public:
-    Status status;
-    size_t workers;
+    status_t status;
+    size_t   workers;
 
     Runner();
     void run();

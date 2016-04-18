@@ -1,3 +1,5 @@
+#include "worker.h"
+#include "async.h"
 #include "runner.h"
 
 namespace ton {
@@ -12,11 +14,11 @@ void Runner::run() {
     status = running;
 }
 
-void Runner::dispatch(Worker *worker) {
+void Runner::dispatch(Worker &worker) {
     _workers.push(worker);    
 }
     
-Async *async() {
+Async *Runner::async() {
     return _async;
 }
     
