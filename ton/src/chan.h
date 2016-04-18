@@ -22,7 +22,6 @@ class Chan {
     void _scan(void);
     std::vector<msg_t*> _msgs;
     std::vector<Worker> _subscribes;
-    async_t             *_async;
 }; //Chan 
 
 } //ton
