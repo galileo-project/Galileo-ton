@@ -19,6 +19,6 @@
     std::cout << msg << std::endl; \
     }while(0)
     
-typedef int (*Func)(void);
+typedef int (*test_f)(void);
 
 #endif //TON_TEST_H_
