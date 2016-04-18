@@ -61,8 +61,11 @@ void * Async::_wrapper(wrapper_data *data) {
 void Async::_async_done() {
     const auto end = this->_rets.cend();
     for(auto ret = this->_rets.begin(); ret != end; ret++) {
-        if(ret->async_status == async_done)
-            pthread_join(ret->pid, NULL);  //TODO imple
+        if(ret->async_status == async_done) {
+            void data;
+            pthread_join(ret->pid, data);
+            result.push(data);
+        }
     }
 }
     
