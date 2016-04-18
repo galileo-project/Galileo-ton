@@ -1,3 +1,5 @@
+#include "worker.h"
+#include "async.h"
 #include "chan.h"
 
 namespace ton {

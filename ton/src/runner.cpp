@@ -15,7 +15,7 @@ void Runner::run() {
 }
 
 void Runner::dispatch(const Worker &worker) {
-    _workers.push(worker);    
+    _workers.push_back(worker);    
 }
     
 Async *Runner::async() {

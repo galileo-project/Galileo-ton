@@ -49,7 +49,7 @@ int Async::run(async_f *func, void *data) {
     }
     async_ret_t *ret = async_ret_new(pid);
     async_ret_run(ret);
-    _rets.push(ret);
+    _rets.push_back(ret);
 }
 
 void * Async::_wrapper(wrapper_data *data) {
@@ -64,7 +64,7 @@ void Async::_async_done() {
         if(ret->async_status == async_done) {
             void data;
             pthread_join(ret->pid, data);
-            result.push(data);
+            result.push_back(data);
         }
     }
 }
