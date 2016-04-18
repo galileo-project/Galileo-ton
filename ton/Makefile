@@ -1,7 +1,7 @@
 CPPC            = g++
-CFLAGS          = -I src -Wall
+CPPFLAGS          = -I src -Wall -lpthread
 AR              = ar
-ARFLAGES        = -crv -static -pthread 
+ARFLAGES        = -crv
 LIB_TARGET      = libton.a
 TEST_TARGET     = test.out
 LIB_CPPFILE     = $(wildcard ./src/*.cpp)
@@ -22,7 +22,7 @@ $(LIB_TARGET): $(LIB_OBJS)
 .PHONY: test
 test: $(TEST_OBJS) $(LIB_TARGET)
 	@echo compile test target
-	$(CPPC) $(CFLAGS) -o $(TEST_TARGET) $^
+	$(CPPC) $(CPPFLAGS) -o $(TEST_TARGET) $^
 	./$(TEST_TARGET)
     
 .PHONY: install
