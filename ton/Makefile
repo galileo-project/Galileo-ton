@@ -1,7 +1,7 @@
 CPPC            = g++
-CFLAGS          = -I src -Wall -lpthread
+CFLAGS          = -I src -Wall
 AR              = ar
-ARFLAGES        = -crv
+ARFLAGES        = -crv -static -pthread 
 LIB_TARGET      = libton.a
 TEST_TARGET     = test.out
 LIB_CPPFILE     = $(wildcard ./src/*.cpp)
