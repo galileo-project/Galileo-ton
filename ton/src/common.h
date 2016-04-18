@@ -10,24 +10,28 @@ typedef enum status_e {
     stopped,
     running,
     dead,
-    started
-} Status;
+    started,
+    nullStatus
+} status_t;
 
 typedef enum signal_e {
     start,
     stop,
-    kill
-} Signal;
+    kill,
+    nullSignal
+} signal_t;
 
 typedef enum type_e {
-    log
-} Type;
+    task,
+    signal,
+    nullType
+} type_t;
 
 typedef struct msg_s {
    Signal signal; 
    Type type;
    void *data;
-} Msg;
+} msg_t;
 
 } //ton 
 

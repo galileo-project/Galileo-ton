@@ -14,8 +14,9 @@ void Chan::clear() {
     subscribes.clear();
 }
 
-void Chan::send(const Worker& worker, const Msg& msg) {
+void Chan::send(const Worker& worker, const msg_t& msg) {
     worker.receive(msg);
+    _scan();
 }
    
 void Chan::broadcast(const Msg& msg) {
@@ -25,6 +26,11 @@ void Chan::broadcast(const Msg& msg) {
             worker.receive(msg);
         }
     }
+    _scan();
 }   
+
+void Chan::_scan(void) {
+    
+}
    
 } //ton

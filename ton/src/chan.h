@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "worker.h"
+#include "async.h"
 #include <vector>
 
 namespace ton {
@@ -13,12 +14,15 @@ class Chan {
 
     Chan();
     ~Chan();
-    void send(const Worker&, const Msg&);
-    void broadcast(const Msg&);
+    void send(const Worker&, const msg_t&);
+    void broadcast(const msg_t&);
     void subscribe(const Worker&);
     void clear();
   private:
-    std::vector<Worker> subscribes;
+    void _scan(void);
+    std::vector<msg_t*> _msgs;
+    std::vector<Worker> _subscribes;
+    async_t             *_async;
 }; //Chan 
 
 } //ton
