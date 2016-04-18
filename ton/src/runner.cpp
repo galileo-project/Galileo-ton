@@ -7,14 +7,14 @@ namespace ton {
 Runner::Runner() {
     workers  = 0;
     status   = created;
-    _async   = new Async()
+    _async   = new Async();
 }
 
 void Runner::run() {
     status = running;
 }
 
-void Runner::dispatch(Worker &worker) {
+void Runner::dispatch(const Worker &worker) {
     _workers.push(worker);    
 }
     
