@@ -1,9 +1,10 @@
+#include "chan.h"
+
 #ifndef TON_WORKER_H_
 #define TON_WORKER_H_
 
 #include "common.h"
 #include "task.h"
-#include "chan.h"
 
 namespace ton {
 
