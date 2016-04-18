@@ -28,8 +28,8 @@ typedef enum type_e {
 } type_t;
 
 typedef struct msg_s {
-   Signal signal; 
-   Type type;
+   signal_t signal; 
+   type_t type;
    void *data;
 } msg_t;
 
