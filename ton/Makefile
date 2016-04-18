@@ -1,14 +1,15 @@
 CPPC            = g++
-CFLAGS          = -I src -Wall
+CFLAGS          = -I src -Wall -lpthread
 AR              = ar
-ARFLAGES        = -crv -lpthread
+ARFLAGES        = -crv
 LIB_TARGET      = libton.a
 TEST_TARGET     = test.out
-LIB_CPPFILE     = $(notdir $(wildcard ./src/*.cpp))
-TEST_CPPFILE    = $(notdir $(wildcard ./test/.cpp))
-LIB_OBJS       := $(patsubst %.c, %.o, $(LIB_CPPFILE))
-TEST_OBJS      := $(patsubst %.c, %.o, $(TEST_CPPFILE))
+LIB_CPPFILE     = $(wildcard ./src/*.cpp)
+TEST_CPPFILE    = $(wildcard ./test/.cpp)
+LIB_OBJS       := $(patsubst %.cpp, %.o, $(notdir $(LIB_CPPFILE)))
+TEST_OBJS      := $(patsubst %.cpp, %.o, $(notdir $(TEST_CPPFILE)))
 HEADER_FILLE    = $(wildcard ./src/*.h)
+TEST_HEADER     = $(wildcard ./test/*.h)
 LIB_DIR         = /usr/local/lib
 INCLUDE_DIR     = /usr/local/include/ton
 
@@ -31,8 +32,8 @@ install: $(LIB_TARGET) $(HEADER_FILLE)
 	cp -r $(HEADER_FILLE) $(INCLUDE_DIR)
 	cp $(LIB_TARGET) $(LIB_DIR)
     
-$(LIB_OBJS):  $(LIB_CPPFILE)
-$(TEST_OBJS): $(TEST_CPPFILE)
+$(LIB_OBJS):  $(LIB_CPPFILE) $(HEADER_FILLE)
+$(TEST_OBJS): $(TEST_CPPFILE) $(TEST_HEADER)
 
 .PHONY: clean
 clean:
