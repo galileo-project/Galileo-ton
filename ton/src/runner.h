@@ -3,22 +3,23 @@
 
 #include "common.h"
 #include "worker.h"
+#include <vector>
+#include <pthread.h>
 
 namespace ton {
+  
+
 
 class Runner {
   public:
     Status status;
+    size_t workers;
 
     Runner();
-    ~Runner();
-    Status get_status();
-    size_t get_workers();
     void run();
-    void dispatch(Worker*);
+    void dispatch(const Worker&);
   private:
-    size_t _workers;
-
+    std::vector<Worker> _workers;
 }; //Runner
 
 } //ton
