@@ -7,7 +7,7 @@ namespace ton {
 Worker::Worker(Task &task) {
     status = created;
     _task  = task;
-    _chan   = NULL;
+    _chan  = new Chan();
 }
 
 Worker::~Worker() {

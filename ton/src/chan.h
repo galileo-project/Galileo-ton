@@ -1,8 +1,9 @@
+#include "worker.h"
+
 #ifndef TON_CHAN_H_
 #define TON_CHAN_H_
 
 #include "common.h"
-#include "worker.h"
 #include "async.h"
 #include <vector>
 
