@@ -16,9 +16,9 @@ class Worker {
     void receive(const msg_t&);
     void work();
   private:
-    Chan& _chan;
-    Task& _task;
-    msg_t& _msg;
+    Chan&   _chan;
+    Task&   _task;
+    msg_t&  _msg;
 }; //Worker
 
 } //ton

@@ -20,7 +20,7 @@ class Chan {
     void clear();
   private:
     std::vector<msg_t*> _msgs;
-    Async *_async;
+    Async               *_async;
     std::vector<Worker> _subscribes;
 }; //Chan 
 
