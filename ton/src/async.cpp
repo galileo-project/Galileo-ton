@@ -61,10 +61,10 @@ void * Async::_wrapper(wrapper_data_t *data) {
     
 void Async::_async_done() {
     const async_ret_t cend = this->_rets.cend();
-    for(async_ret_t ret = this->_rets.cbegin(); ret != cend; ret++) {
-        if(ret->async_status == async_done) {
+    for(async_ret_t ret = this->_rets.cbegin(); ret != cend; ++ret) {
+        if(ret.async_status == async_done) {
             void *data;
-            pthread_join(ret->pid, data);
+            pthread_join(re.pid, data);
             result.push_back(data);
         }
     }
