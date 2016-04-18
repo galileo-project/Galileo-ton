@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "worker.h"
+#include "async.h"
 #include <vector>
 #include <pthread.h>
 
@@ -18,8 +19,10 @@ class Runner {
     Runner();
     void run();
     void dispatch(const Worker&);
+    Async *async();
   private:
     std::vector<Worker> _workers;
+    Async               *_async;
 }; //Runner
 
 } //ton

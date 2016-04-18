@@ -19,8 +19,8 @@ class Chan {
     void subscribe(const Worker&);
     void clear();
   private:
-    void _scan(void);
     std::vector<msg_t*> _msgs;
+    Async *_async;
     std::vector<Worker> _subscribes;
 }; //Chan 
 
