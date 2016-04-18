@@ -2,9 +2,10 @@
 #define TON_TUILS_H_
 
 #include "common.h"
-#include "task.h"
 
 namespace ton {
+
+class Task;
 
 void async(Task*);
 void safe_free(void*);

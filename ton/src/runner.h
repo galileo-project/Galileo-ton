@@ -2,12 +2,13 @@
 #define TON_RUNNER_H_
 
 #include "common.h"
-#include "worker.h"
-#include "async.h"
 #include <vector>
 #include <pthread.h>
 
 namespace ton {
+  
+class Worker;
+class Async;
 
 class Runner {
   public:

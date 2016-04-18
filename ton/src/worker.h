@@ -2,10 +2,11 @@
 #define TON_WORKER_H_
 
 #include "common.h"
-#include "chan.h"
-#include "task.h"
 
 namespace ton {
+
+class Chan;
+class Task;
 
 class Worker {
   public:

@@ -2,11 +2,11 @@
 #define TON_CHAN_H_
 
 #include "common.h"
-#include "async.h"
-#include "worker.h"
 #include <vector>
 
 namespace ton {
+  
+class Worker;
 
 class Chan {
   public:
@@ -20,7 +20,6 @@ class Chan {
     void clear();
   private:
     std::vector<msg_t*> _msgs;
-    Async               *_async;
     std::vector<Worker> _subscribes;
 }; //Chan 
 
