@@ -1,7 +1,7 @@
 #ifndef TON_ASYNC_H_
 #define TON_ASYNC_H_
 
-#include <pthread>
+#include <pthread.h>
 
 namespace ton {
     
