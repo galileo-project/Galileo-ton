@@ -3,21 +3,22 @@
 
 #include "common.h"
 #include "task.h"
+#include "chan.h"
 
 namespace ton {
 
 class Worker {
   public:
-    Status status;
+    status_t status;
 
     Worker(Task&);
     ~Worker();
-    void receive(Msg&);
+    void receive(const msg_t&);
     void work();
   private:
     Chan& _chan;
-    Task& _task
-    Msg& _msg;
+    Task& _task;
+    msg_t& _msg;
 }; //Worker
 
 } //ton
