@@ -20,7 +20,9 @@ void *Worker::receive(const msg_t& msg) {
 }
 
 void Worker::work() {
-    
+    while(1) {
+        //work   
+    }
 }
     
 } //ton
