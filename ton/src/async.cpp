@@ -72,10 +72,10 @@ void Async::_async_done() {
     }
 }
     
-friend void *_wrapper(void*) {
+void *_wrapper(void *data) {
     wrapper_data_t *_data = (wrapper_data_t*)(data);
     void *ret = (_data->func)(_data->data);
-    (_data->async)._async_done();
+    (_data->async)->_async_done();
     return ret;
 }
     
