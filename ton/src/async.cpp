@@ -57,17 +57,17 @@ int Async::run(async_f *func, void *data) {
     }
     async_ret_t *ret = async_ret_new(pid);
     async_ret_run(ret);
-    _rets.push_back(*ret);
+    _rets.push_back(ret);
     return 0;
 }
  
 void Async::_async_done() {
-    const async_ret_t cend = _rets.cend();
-    for(async_ret_t ret = _rets.cbegin(); async_ret_eq(ret, cend); ++ret) {
-        if(ret.async_status == async_done) {
+    const auto cend = _rets.cend();
+    for(auto ret = _rets.cbegin(); ret != cend; ++ret) {
+        if((*ret)->async_status == async_done) {
             void **data;
-            pthread_join(ret.pid, data);
-            result.push_back(data);
+            pthread_join((*ret)->pid, data);
+            result.push_back(*data);
         }
     }
 }
