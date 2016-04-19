@@ -49,7 +49,7 @@ Async::~Async() {
 }
     
 int Async::run(async_f *func, void *data) {
-    wrapper_data_t *wrapper_data = wrapper_data_new(func, data); 
+    wrapper_data_t *wrapper_data = wrapper_data_new(func, data, this); 
     pthread_t pid;
     
     if(pthread_create(&pid, NULL, &_wrapper, wrapper_data)) {
