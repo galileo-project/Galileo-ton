@@ -8,6 +8,7 @@ namespace ton {
   
 class Worker;
 class Async;
+class Runner;
 
 class Chan {
   public:
