@@ -13,7 +13,7 @@ class Chan {
   public:
     size_t len;
 
-    Chan();
+    Chan(Runner*);
     ~Chan();
     void send(const Worker&, const msg_t&);
     void broadcast(const msg_t&);

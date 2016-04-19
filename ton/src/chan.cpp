@@ -19,14 +19,14 @@ void Chan::clear() {
 }
 
 void Chan::send(const Worker& worker, const msg_t& msg) {
-    _async->run(worker.receive, msg);
+    _async->run(worker.receive, &msg);
 }
    
 void Chan::broadcast(const msg_t& msg) {
     if(!_subscribes.empty()) {
-        const Worker cend = subscribes.cend();
-        for(Worker worker = subscribes.cbegin(); worker != cend; ++worker) {
-            _async->run(worker.receive, msg);
+        const auto cend = _subscribes.cend();
+        for(auto worker = _subscribes.cbegin(); worker != cend; ++worker) {
+            _async->run(worker.receive, &msg);
         }
     }
 }   
