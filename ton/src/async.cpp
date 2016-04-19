@@ -72,7 +72,7 @@ void Async::_async_done() {
     }
 }
     
-void *_wrapper(void *data) {
+static void *_wrapper(void *data) {
     wrapper_data_t *_data = (wrapper_data_t*)(data);
     void *ret = (_data->func)(_data->data);
     (_data->async)->_async_done();
