@@ -30,9 +30,11 @@ typedef enum type_e {
 
 typedef struct msg_s {
    signal_t signal; 
-   type_t type;
-   void *data;
+   type_t   type;
+   void     *data;
 } msg_t;
+
+msg_t *msg_new(signal_t, type_t, void*);
 
 } //ton 
 
