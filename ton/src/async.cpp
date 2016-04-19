@@ -51,7 +51,7 @@ int Async::run(async_f *func, void *data) {
     wrapper_data_t *wrapper_data = wrapper_data_new(func, data); 
     pthread_t pid;
     
-    if(pthread_create(&pid, NULL, _wrapper, wrapper_data)) {
+    if(pthread_create(&pid, NULL, &_wrapper, wrapper_data)) {
         return -1;
     }
     async_ret_t *ret = async_ret_new(pid);
@@ -59,23 +59,23 @@ int Async::run(async_f *func, void *data) {
     _rets.push_back(ret);
     return 0;
 }
-
-void * Async::(*_wrapper)(void *data) {
-    wrapper_data_t *_data = (wrapper_data_t*)(data);
-    void *ret = (_data->func)(_data->data);
-    _async_done();
-    return ret;
-}
-    
+ 
 void Async::_async_done() {
     const async_ret_t cend = this->_rets.cend();
     for(async_ret_t ret = this->_rets.cbegin(); async_ret_eq(ret, cend); ++ret) {
         if(ret.async_status == async_done) {
             void **data;
             pthread_join(ret.pid, data);
-            resuUpdate lt.push_back(data);
+            result.push_back(data);
         }
     }
+}
+    
+friend void *_wrapper(void*) {
+    wrapper_data_t *_data = (wrapper_data_t*)(data);
+    void *ret = (_data->func)(_data->data);
+    _async_done();
+    return ret;
 }
     
 } //ton

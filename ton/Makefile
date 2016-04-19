@@ -1,5 +1,5 @@
 CPPC            = g++
-CPPFLAGS          = -I src -Wall -lpthread
+CPPFLAGS          = -I src -Wall -lpthread -std=c++11
 AR              = ar
 ARFLAGES        = -crv
 LIB_TARGET      = libton.a
