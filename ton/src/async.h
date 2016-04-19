@@ -6,6 +6,8 @@
 
 namespace ton {
     
+class Async;
+    
 //async function
 typedef void *async_f(void*);
 
@@ -30,9 +32,10 @@ int  async_ret_eq(const async_ret_t&, const async_ret_t&);
 typedef struct wrapper_data_s {
     async_f *func;
     void    *data;
+    Async   *async;
 } wrapper_data_t;
 
-wrapper_data_t *wrapper_data_new(async_f*, void*);
+wrapper_data_t *wrapper_data_new(async_f*, void*, Async*);
     
 //Async class
 class Async {

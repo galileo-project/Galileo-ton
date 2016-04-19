@@ -28,13 +28,14 @@ int async_ret_eq(const async_ret_t &lhs, const async_ret_t &rhs) {
 }
 
 //wrapper
-wrapper_data_t *wrapper_data_new(async_f *func, void *data) {
+wrapper_data_t *wrapper_data_new(async_f *func, void *data, Async* async) {
     wrapper_data_t *wrapper_data = (wrapper_data_t*)malloc(sizeof(wrapper_data_t));
     if(wrapper_data == NULL)
         return NULL;
     
     wrapper_data->func = func;
     wrapper_data->data = data;
+    wrapper_data->async = async;
     return wrapper_data;
 }
 
@@ -74,7 +75,7 @@ void Async::_async_done() {
 friend void *_wrapper(void*) {
     wrapper_data_t *_data = (wrapper_data_t*)(data);
     void *ret = (_data->func)(_data->data);
-    _async_done();
+    (_data->async)._async_done();
     return ret;
 }
     
