@@ -37,4 +37,4 @@
     
 ### Note
 
-1. Runner impolement by thread pool
+1. Runner implement with thread pool
