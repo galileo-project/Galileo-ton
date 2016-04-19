@@ -24,6 +24,7 @@ typedef struct async_s {
 async_ret_t * async_ret_new(pthread_t);
 void async_ret_run(async_ret_t*);
 void async_ret_done(async_ret_t*);
+int  async_ret_eq(const async_ret_t&, const async_ret_t&);
 
 //async wrapper data
 typedef struct wrapper_data_s {
@@ -41,7 +42,7 @@ class Async {
     ~Async();
     int run(async_f*, void*);
   private:
-    void                     *_wrapper(void*);
+    void                     *(*_wrapper)(void*);
     void                      _async_done();
     std::vector<async_ret_t*> _rets;
     pthread_mutex_t           _lock;
