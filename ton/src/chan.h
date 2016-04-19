@@ -22,7 +22,7 @@ class Chan {
   private:
     std::vector<msg_t*> _msgs;
     std::vector<Worker> _subscribes;
-    Async               _async;
+    Async               *_async;
 }; //Chan 
 
 } //ton
