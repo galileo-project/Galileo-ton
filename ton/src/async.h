@@ -7,7 +7,6 @@
 namespace ton {
     
 class Async;
-static void *_wrapper(void *);
     
 //async function
 typedef void *async_f(void*);

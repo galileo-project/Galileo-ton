@@ -3,6 +3,8 @@
 
 namespace ton {
     
+static void *_wrapper(void *);
+    
 async_ret_t * async_ret_new(pthread_t pid) {
     async_ret_t *ret = (async_ret_t*)malloc(sizeof(async_ret_t));
     if(ret == NULL)
