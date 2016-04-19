@@ -7,6 +7,7 @@
 namespace ton {
     
 class Async;
+void *_wrapper(void *);
     
 //async function
 typedef void *async_f(void*);
@@ -44,7 +45,7 @@ class Async {
     Async();
     ~Async();
     int  run(async_f*, void*);
-    friend static void *_wrapper(void*);
+    friend void *_wrapper(void*);
   private:
     void                      _async_done();
     std::vector<async_ret_t>  _rets;

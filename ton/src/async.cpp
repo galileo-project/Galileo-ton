@@ -2,9 +2,7 @@
 #include "async.h"
 
 namespace ton {
-    
-static void *_wrapper(void *);
-    
+       
 async_ret_t * async_ret_new(pthread_t pid) {
     async_ret_t *ret = (async_ret_t*)malloc(sizeof(async_ret_t));
     if(ret == NULL)
@@ -74,7 +72,7 @@ void Async::_async_done() {
     }
 }
     
-static void *_wrapper(void *data) {
+void *_wrapper(void *data) {
     wrapper_data_t *_data = (wrapper_data_t*)(data);
     void *ret = (_data->func)(_data->data);
     (_data->async)->_async_done();
