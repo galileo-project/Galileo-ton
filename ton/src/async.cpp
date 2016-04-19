@@ -1,5 +1,5 @@
-#include "async.h"
 #include <cstdlib>
+#include "async.h"
 
 namespace ton {
     
@@ -54,7 +54,7 @@ int Async::run(async_f *func, void *data) {
 }
 
 void * Async::_wrapper(void *data) {
-    wrapper_data_t *_data = (wrapper_data_t*)(data)
+    wrapper_data_t *_data = (wrapper_data_t*)(data);
     void *ret = (_data->func)(_data->data);
     _async_done();
     return ret;
