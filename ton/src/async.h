@@ -41,7 +41,7 @@ wrapper_data_t *wrapper_data_new(async_f*, void*, Async*);
 //Async class
 class Async {
   public:
-    std::vector<void*> result;
+    std::vector<void**> result;
     Async();
     ~Async();
     int  run(async_f*, void*);

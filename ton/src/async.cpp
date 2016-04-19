@@ -67,7 +67,7 @@ void Async::_async_done() {
         if((*ret)->async_status == async_done) {
             void **data;
             pthread_join((*ret)->pid, data);
-            result.push_back(*data);
+            result.push_back(**data);
         }
     }
 }

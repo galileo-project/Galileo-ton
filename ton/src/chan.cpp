@@ -15,7 +15,7 @@ Chan::~Chan() {
 
 void Chan::clear() {
     _subscribes.clear();
-    _msg.clear();
+    _msgs.clear();
 }
 
 void Chan::send(const Worker& worker, const msg_t& msg) {
@@ -23,7 +23,7 @@ void Chan::send(const Worker& worker, const msg_t& msg) {
 }
    
 void Chan::broadcast(const msg_t& msg) {
-    if(!subscribes.empty()) {
+    if(!_subscribes.empty()) {
         const Worker cend = subscribes.cend();
         for(Worker worker = subscribes.cbegin(); worker != cend; ++worker) {
             _async.run(worker.receive, msg);
