@@ -44,12 +44,12 @@ class Async {
     std::vector<void**> result;
     Async();
     ~Async();
-    int  run(async_f*, void*);
+    int run(async_f*, void*);
     friend void *_wrapper(void*);
   private:
-    void                      _async_done();
+    void                       _async_done();
     std::vector<async_ret_t*>  _rets;
-    pthread_mutex_t           _lock;
+    pthread_mutex_t            _lock;
 }; //Async
     
 } // ton
