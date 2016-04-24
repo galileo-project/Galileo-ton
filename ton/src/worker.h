@@ -2,22 +2,24 @@
 #define TON_WORKER_H_
 
 #include "common.h"
-#include "task.h"
 
 namespace ton {
 
+class Chan;
+class Task;
+
 class Worker {
   public:
-    Status status;
+    status_t status;
 
     Worker(Task&);
     ~Worker();
-    void receive(Msg&);
+    void *receive(const msg_t&);
     void work();
   private:
-    Chan& _chan;
-    Task& _task
-    Msg& _msg;
+    Chan   *_chan;
+    Task   *_task;
+    msg_t  _msg;
 }; //Worker
 
 } //ton

@@ -1,27 +1,28 @@
-#include "worker.h"
 #include "common.h"
 #include "utils.h"
+#include "chan.h"
+#include "worker.h"
 
 namespace ton {
     
-Worker::Worker() {
+Worker::Worker(Task &task) {
     status = created;
-    msg    = NULL;
-    _task  = NULL;
-    Chan   = NULL;
+    _task  = &task;
+    _chan  = new Chan();
 }
 
 Worker::~Worker() {
-    safe_free(msg);
     safe_free(_task);
 }
 
-void Worker::receive(const Msg& msg) {
-    
+void *Worker::receive(const msg_t& msg) {
+    return NULL;
 }
 
-void Worker::worker() {
-    
+void Worker::work() {
+    while(1) {
+        //work   
+    }
 }
     
 } //ton

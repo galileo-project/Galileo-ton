@@ -6,32 +6,35 @@
 namespace ton {
 
 typedef enum status_e {
-    created,
-    stopped,
-    running,
-    dead,
-    started,
-    nullStatus
+    _created_st,
+    _stopped_st,
+    _running_st,
+    _dead_st,
+    _started_st,
+    _null_st
 } status_t;
 
 typedef enum signal_e {
-    start,
-    stop,
-    kill,
-    nullSignal
+    _start_sg,
+    _stop_sg,
+    _kill_sg,
+    _null_sg
 } signal_t;
 
 typedef enum type_e {
-    task,
-    signal,
-    nullType
+    _task_tp,
+    _signal_tp,
+    _null_tp,
+    _result_tp
 } type_t;
 
 typedef struct msg_s {
-   Signal signal; 
-   Type type;
-   void *data;
+   signal_t signal; 
+   type_t   type;
+   void     *data;
 } msg_t;
+
+msg_t *msg_new(signal_t, type_t, void*);
 
 } //ton 
 

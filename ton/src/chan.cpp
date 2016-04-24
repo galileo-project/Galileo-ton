@@ -1,9 +1,12 @@
+#include "worker.h"
+#include "async.h"
 #include "chan.h"
 
 namespace ton {
 
-Chan::Chan() {
+Chan::Chan(Runner *runner) {
     len = 0;
+    _async = runner->async();
 }
 
 Chan::~Chan() {
@@ -11,26 +14,21 @@ Chan::~Chan() {
 }
 
 void Chan::clear() {
-    subscribes.clear();
+    _subscribes.clear();
+    _msgs.clear();
 }
 
 void Chan::send(const Worker& worker, const msg_t& msg) {
-    worker.receive(msg);
-    _scan();
+    _async->run(worker.receive, &msg);
 }
    
 void Chan::broadcast(const msg_t& msg) {
-    if(!subscribes.empty()) {
-        const auto end = subscribes.cend();
-        for(auto worker = subscribes.cbegin(); worker != end; ++worker) {
-            worker.receive(msg);
+    if(!_subscribes.empty()) {
+        const auto cend = _subscribes.cend();
+        for(auto worker = _subscribes.cbegin(); worker != cend; ++worker) {
+            _async->run(worker.receive, &msg);
         }
     }
-    _scan();
 }   
 
-void Chan::_scan(void) {
-    
-}
-   
 } //ton
