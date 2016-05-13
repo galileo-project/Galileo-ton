@@ -26,16 +26,17 @@ vMemory|vDisk|
 ## Project Structure
 
 ```
-include
-driver
-lib
-ton
-app
+include     Common include files
+driver      Driver
+lib         Common library
+ton         TON sys application
+kernel      Kernel
 
 ```
 
 ## File tree
 
 ```
-TBD
+include /usr/include/ton
+lib     /usr/lib/ton
 ```
