@@ -42,3 +42,8 @@ lib     /usr/lib/ton
 
 Storage /var/ton
 ```
+
+
+## Note
+
+1. Maybe VM
