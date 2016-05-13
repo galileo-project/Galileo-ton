@@ -39,4 +39,6 @@ kernel      Kernel
 ```
 include /usr/include/ton
 lib     /usr/lib/ton
+
+Storage /var/ton
 ```
