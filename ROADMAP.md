@@ -1,9 +1,9 @@
 ## ROADMAP
 
 ```
-                 User Application
+                    User Application
 =============================================================
-                   Application
+                     Application
 -------------------------------------------------------------
 File System|App Channel|Routine|Dispatch
 =============================================================
@@ -11,14 +11,14 @@ File System|App Channel|Routine|Dispatch
            |-------------------------------------------------
            |        Local          |         Global
            |-----------------------|-------------------------
-  Library  |Network|Database|Cache|
-           |Storage|               |
+  Library  |Database|Storage       |Cache
+           |                       |
            |                       |-------------------------
            |                       |         Channel
 =============================================================
-                         Driver
+                      Device Driver
 -------------------------------------------------------------
-vDisk|
+vDisk|Network
 =============================================================
                          Linux
 ```
