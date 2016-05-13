@@ -22,3 +22,20 @@ vMemory|vDisk|
 =============================================================
                          Linux
 ```
+
+## Project Structure
+
+```
+include
+driver
+lib
+ton
+app
+
+```
+
+## File tree
+
+```
+TBD
+```
