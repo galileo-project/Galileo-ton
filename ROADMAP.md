@@ -23,7 +23,7 @@ vMemory|vDisk|
                          Linux
 ```
 
-## Project Structure
+## Project structure
 
 ```
 include     Common include files
