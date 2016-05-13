@@ -1,0 +1,10 @@
+language:    c
+author:      Galileo
+version:     0.1
+email:       chenwenjie27@gmail.com
+description: galileo task on network
+name:        Galileo-ton
+git_url:     git@github.com:galileo-project
+
+dep:
+  git@github.com:galileo-project/Galileo-cut.git
