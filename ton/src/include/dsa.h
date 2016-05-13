@@ -1,5 +1,5 @@
-#ifndef TON_LIB_ELEMENT_H_
-#define TON_LIB_ELEMENT_H_
+#ifndef TON_LIB_DSA_H_
+#define TON_LIB_DSA_H_
 
 //hash generator function
 typedef size_t (*hash_func_t)(void*);
@@ -94,4 +94,4 @@ int         hashtab_rehash(hashtab_t*, size_t);
 int         hashtab_clean(hashtab_t*);
 
 
-#endif //TON_LIB_ELEMENT_H_
+#endif //TON_LIB_DSA_H_
