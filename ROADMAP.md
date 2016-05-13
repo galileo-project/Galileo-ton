@@ -9,9 +9,9 @@ File System|App Channel|Routine|Dispatch
 =============================================================
            |                     Kernel
            |-------------------------------------------------
-  Library  |        Local          |         Global
+           |        Local          |         Global
            |-----------------------|-------------------------
-           |Memory|Network|Database|Cache|
+  Library  |Memory|Network|Database|Cache|
            |Storage|               |
            |                       |-------------------------
            |                       |         Channel
