@@ -11,7 +11,7 @@ struct dsa_node {
 };
 
 struct dsa_node *node_new(void *data);
-int 		node_clean(struct dsa_node *node);
+int		node_clean(struct dsa_node *node);
 
 /*
  *DSA List
