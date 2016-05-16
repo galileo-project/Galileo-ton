@@ -1,7 +1,7 @@
 #ifndef TON_LIB_DSA_H_
 #define TON_LIB_DSA_H_
 
-/*Return status*/
+/*status*/
 #define DSA_SUCCESS 0
 #define DSA_ERROR   -1
 
@@ -25,21 +25,20 @@ struct dsa_list {
 	struct dsa_node		*tail;
 	size_t			capacity;
 	size_t			length;
-	size_t			cursor;
+	struct dsa_node		*cursor;
 };
 
 struct dsa_list *list_new(size_t capacity);
 struct dsa_node	*list_find(struct dsa_list *list, void *data);
 struct dsa_node	*list_pre(struct dsa_list *list);
 struct dsa_node	*list_next(struct dsa_list *list);
-size_t		list_tell(struct dsa_list *list);
 size_t		list_length(struct dsa_list *list);
 int		list_clean(struct dsa_list *list);
 int 		list_add(struct dsa_list *list, struct dsa_node *node);
 int 		list_add_raw(struct dsa_list *list, void *data);
 int 		list_remove(struct dsa_list *list, struct dsa_node *node);
 int 		list_remove_raw(struct dsa_list *list, void *data);
-int		list_seek(struct dsa_list *list, size_t seek);
+int		list_reset(struct dsa_list *list, int position);
  
 /*
  *DSA Bucket
