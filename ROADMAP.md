@@ -1,29 +1,34 @@
 ## ROADMAP
 
 ```
-                 User Application
+                    User Application
 =============================================================
-                   Application
+                     Application
 -------------------------------------------------------------
-File System|App Channel|Routine|Dispatch
+Routine|Dispatch            
 =============================================================
-           |                     Kernel
-           |-------------------------------------------------
-           |        Local          |         Global
-           |-----------------------|-------------------------
-  Library  |Memory|Network|Database|Cache|
-           |Storage|               |
-           |                       |-------------------------
-           |                       |         Channel
+                       Library                               ---|
+-------------------------------------------------------------   |
+                System Call Interface                           |
+-------------------------------------------------------------   |
+            Local        |         Global                       |---Kernel
+-------------------------|-----------------------------------   |
+Database|VFS             |Cache                                 |
+-------------------------------------------------------------   |
+                      Channel                                ---|
 =============================================================
-                         Driver
+                      Device Driver
 -------------------------------------------------------------
-vMemory|vDisk|
+Disk|Network
 =============================================================
                          Linux
+                         
+
+VFS: virtual File System                         
+
 ```
 
-## Project Structure
+## Project structure
 
 ```
 include     Common include files
@@ -39,4 +44,11 @@ kernel      Kernel
 ```
 include /usr/include/ton
 lib     /usr/lib/ton
+
+Storage /var/ton
 ```
+
+
+## Note
+
+1. Maybe VM
