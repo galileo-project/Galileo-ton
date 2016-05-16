@@ -1,6 +1,10 @@
 #ifndef TON_LIB_DSA_H_
 #define TON_LIB_DSA_H_
 
+/*Return status*/
+#define DSA_SUCCESS 0
+#define DSA_ERROR   -1
+
 /*
  *DSA Node
  */
@@ -24,7 +28,7 @@ struct dsa_list {
 	size_t			cursor;
 };
 
-struct dsa_list *list_new(void);
+struct dsa_list *list_new(size_t capacity);
 struct dsa_node	*list_find(struct dsa_list *list, void *data);
 struct dsa_node	*list_pre(struct dsa_list *list);
 struct dsa_node	*list_next(struct dsa_list *list);

@@ -21,10 +21,10 @@ int
 node_clean(struct dsa_node *node)
 {
 	if (node == NULL) {
-		return 1;
+		return DSA_ERROR;
 	} else {
 		free(node->data);
 		free(node);
-		return 0;
+		return DSA_SUCCESS;
 	}
 }
